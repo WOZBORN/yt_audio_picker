@@ -2,7 +2,7 @@
 This is a bot that helps you download audio and video from YouTube from the link to the video itself, as well as an archive with an audio / video playlist from the link to the playlist.
 
 # Getting Started
-To use this bot, you will need to create a Telegram bot and get its API token. Once you have the token, you will need to add it to the config.ini file in this repository.
+To use this bot, you will need to create a Telegram bot and get its API token. Once you have the token, you will need to add it to .env.
 
 After that, you can run the bot by running the bot.py file. The bot will be online and ready to use.
 
