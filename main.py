@@ -4,9 +4,11 @@ import logging
 
 from aiogram import Bot, Dispatcher, Router, types
 from aiogram.filters.command import Command
-from aiogram.types import Message
+from aiogram.types import Message, FSInputFile
 
 from dotenv import load_dotenv
+
+import yt_picker
 
 # Loading TOKEN from .env file
 load_dotenv()
@@ -25,9 +27,15 @@ async def cmd_start(message: Message):
 async def echo(message: Message):
     if message.text.startswith("https://www.youtube.com/watch"):
         await message.answer("Обработка видео!")
+        file = yt_picker.download_audio(message.text)
+        if file:
+            await message.answer_audio(FSInputFile(file))
 
     if message.text.startswith("https://www.youtube.com/playlist"):
         await message.answer("Обработка плейлиста!")
+
+
+
 
 async def main():
     # Bot instance initialize
@@ -42,3 +50,5 @@ async def main():
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     asyncio.run(main())
+
+
